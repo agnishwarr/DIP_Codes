@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+width = 512
+height = 512
+square_size = 64
+data = np.zeros((height, width), dtype=np.uint8)
+for i in range(0, height, square_size):
+    for j in range(0, width, square_size):
+        if (i // square_size + j // square_size) % 2 == 0:
+            data[i:i+square_size, j:j+square_size] = 255
+plt.imshow(data, cmap='gray')
+plt.title('Chessboard Image')
+plt.axis('off')
+plt.show()
